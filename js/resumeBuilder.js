@@ -5,7 +5,7 @@ var bio = {
       "mobile": "312-123-4567",
       "email": "dal1986@gmail.com",
       "github": "KBryantmvp",
-      "twitter": "",
+      "twitter": "@david.example",
       "location": "Chicago"
   },
   "welcomeMessage": "Current AT&T employee",
@@ -36,11 +36,13 @@ bio.display = function() {
   $("#header").append(formattedEmail);
   var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
   $("#header").append(formattedGithub);
+  var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+  $("#header").append(formattedTwitter);
   var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
   $("#header").append(formattedLocation);
   var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
   $("#header").append(formattedBioPic);
-}
+};
 
 bio.display();
 
@@ -76,13 +78,10 @@ work.display = function () {
   var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
   var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
   $(".work-entry:last").append(formattedWorkEmployer + formattedWorkTitle);
-
+  var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+  $(".work-entry:last").append(formattedWorkLocation);
   var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
   $(".work-entry:last").append(formattedWorkDates);
-
-  // var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-  // $(".work-entry:last").append(formattedWorkLocation);
-
   var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
   $(".work-entry:last").append(formattedWorkDescription);
   }
@@ -96,22 +95,19 @@ var projects = {
       "title": "Next Generation 911 - ESInet",
       "dates": "Jan 2012 - Aug 2012",
       "description": "Studied the functional elements, architectures, protocols and underlying networks carrying emergency services over IP infrastructure",
-      "images": [
-        "",
-        ""
-      ]
+      // "images": "images/nena.jpg"
     },
     {
       "title": "GSM Network Design for Madrid (Spain)",
       "dates": "Spring 2010",
       "description": "Analyzed, studied and estimated traffic for each BTS, based on vehicles and pedestrian traffic",
-      "images": ""
+      // "images": "images/gsm.jpg"
     },
     {
       "title": "Deployment of Next Generation Networks (NGN)",
       "dates": "Spring 2009",
       "description": "Led a 4-person engineering team in charge of the viability and economic analysis of deploying NGN (WiMax and GPON)",
-      "images": ""
+      // "images": "images/gpon.jpg"
     }
   ]
 };
@@ -126,13 +122,8 @@ projects.display = function() {
       $(".project-entry:last").append(formattedProjectDates);
       var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
       $(".project-entry:last").append(formattedProjectDescription);
-
-      if (projects.projects[project].images.length > 0) {
-        for (var image in projects.projects[project].images) {
-          var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-          $(".project-entry:last").append(formattedProjectImage);
-        }
-      }
+      // var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
+      // $(".project-entry:last").append(formattedProjectImage);
     }
 }
 
@@ -152,7 +143,7 @@ var education = {
     {
       "name": "Politecnica de Madrid",
       "location": "Madrid, Spain",
-      "degree": ["BS", "MS"],
+      "degree": ["BS", " MS"],
       "major": ["Telecomm Engineer", "Telecomm Engineer"],
       "dates": "2011",
       "url": "http://www.etsit.upm.es/index.php/en/"
@@ -172,9 +163,11 @@ education.display = function() {
   for (var school in education.schools) {
     $("#education").append(HTMLschoolStart);
 
-    var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+    var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name).replace("#", education.schools[school].url);
     var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
     $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
+    var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+    $(".education-entry:last").append(formattedSchoolLocation);
     var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
     $(".education-entry:last").append(formattedSchoolDates);
     var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
@@ -185,6 +178,7 @@ education.display = function() {
 education.display();
 
 
+//function that appends skills if they exist
 if (bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);
 
