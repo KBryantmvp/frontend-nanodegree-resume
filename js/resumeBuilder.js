@@ -1,3 +1,4 @@
+//object bio with personal info and an image
 var bio = {
   "name": "David Aguirre",
   "role": "Systems Engineer",
@@ -23,29 +24,40 @@ var bio = {
   "biopic": "images/fry.jpg"
 };
 
+//function that displays the bio info in the #header and the contacts info in the #footerContacts too
 bio.display = function() {
   var formattedName = HTMLheaderName.replace("%data%", bio.name);
   $("#header").append(formattedName);
   var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
   $("#header").append(formattedRole);
+  $("#header span").first().css("font-weight", "bold");
   var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
   $("#header").append(formattedWelcomeMsg);
   var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
   $("#header").append(formattedMobile);
+  $("#footerContacts").append(formattedMobile);
   var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
   $("#header").append(formattedEmail);
+  $("#footerContacts").append(formattedEmail);
   var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
   $("#header").append(formattedGithub);
+  $("#footerContacts").append(formattedGithub);
   var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
   $("#header").append(formattedTwitter);
+  $("#footerContacts").append(formattedTwitter);
   var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
   $("#header").append(formattedLocation);
+  $("#footerContacts").append(formattedLocation);
   var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
   $("#header").append(formattedBioPic);
+
+  //display the contact information in the footer
+
 };
 
 bio.display();
 
+//object work with current and past jobs
 var work = {
   "jobs": [
     {
@@ -72,6 +84,7 @@ var work = {
   ]
 };
 
+//displays the info about the work object
 work.display = function () {
   for (var job in work.jobs) {
   $("#workExperience").append(HTMLworkStart);
@@ -89,6 +102,7 @@ work.display = function () {
 
 work.display();
 
+//projects object containing some projects done
 var projects = {
   "projects": [
     {
@@ -112,6 +126,7 @@ var projects = {
   ]
 };
 
+//function that displays the info in the projects object
 projects.display = function() {
     for (var project in projects.projects) {
       $("#projects").append(HTMLprojectStart);
@@ -129,7 +144,7 @@ projects.display = function() {
 
 projects.display();
 
-
+//education object with the schools where I have studied and online courses
 var education = {
   "schools": [
     {
@@ -159,6 +174,7 @@ var education = {
   ]
 };
 
+//function that displays the info in the education object
 education.display = function() {
   for (var school in education.schools) {
     $("#education").append(HTMLschoolStart);
@@ -173,6 +189,14 @@ education.display = function() {
     var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
     $(".education-entry:last").append(formattedSchoolMajor);
   }
+
+  $("#education").append(HTMLonlineClasses);
+  $("<div id='online-classes'>").insertAfter("#education h3");
+  var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[0].title).replace("#", education.onlineCourses[0].url);
+  var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[0].school);
+  $("#online-classes").append(formattedOnlineTitle + formattedOnlineSchool);
+  var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[0].dates);
+  $("#online-classes").append(formattedOnlineDates);
 }
 
 education.display();

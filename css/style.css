@@ -8,7 +8,7 @@
   overflow: auto;
 }
 
-.education-entry, .work-entry, .project-entry {
+.education-entry, .work-entry, .project-entry, #online-classes {
   padding-left: 5%;
   padding-right: 5%;
 }
@@ -33,6 +33,7 @@ h3 {
   font-size: 20px;
   color: #000000;
   line-height: 22px;
+  margin-top: 10px;
 }
 
 h4 {
@@ -77,6 +78,10 @@ a {
   text-decoration: none;
   margin-top: 10px;
   display: block;
+}
+
+#online-classes a {
+  margin: 0;
 }
 
 .welcome-message {
@@ -148,6 +153,11 @@ ul {
 
 img {
   padding: 10px;
+}
+
+.project-entry img {
+  height: 150px;
+  width: 150px;
 }
 
 /* Bar chart stuff */
