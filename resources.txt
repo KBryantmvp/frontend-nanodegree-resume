@@ -1,0 +1,11 @@
+Documentation and links used:
+- JavaScript Basics course
+- Intro to jQuery course 
+- Basically all the links in the previous 2 courses, specially:
+	http://api.jquery.com/
+	https://developer.mozilla.org/en-US/docs/Web/JavaScript
+	http://jsonlint.com/
+	http://d3js.org/ (although I did not have to implement any of this in my project)
+	https://developers.google.com/maps/documentation/javascript/reference
+	http://designshack.net/articles/css/5-cool-css-hover-effects-you-can-copy-and-paste (the same than before: unfortunately, I did not have time to inlcude any of these effects)
+- Piazza forums
