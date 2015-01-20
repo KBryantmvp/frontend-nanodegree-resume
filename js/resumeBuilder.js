@@ -95,19 +95,19 @@ var projects = {
       "title": "Next Generation 911 - ESInet",
       "dates": "Jan 2012 - Aug 2012",
       "description": "Studied the functional elements, architectures, protocols and underlying networks carrying emergency services over IP infrastructure",
-      // "images": "images/nena.jpg"
+      "images": "images/nena.jpg"
     },
     {
       "title": "GSM Network Design for Madrid (Spain)",
       "dates": "Spring 2010",
       "description": "Analyzed, studied and estimated traffic for each BTS, based on vehicles and pedestrian traffic",
-      // "images": "images/gsm.jpg"
+      "images": "images/gsm.jpg"
     },
     {
       "title": "Deployment of Next Generation Networks (NGN)",
       "dates": "Spring 2009",
       "description": "Led a 4-person engineering team in charge of the viability and economic analysis of deploying NGN (WiMax and GPON)",
-      // "images": "images/gpon.jpg"
+      "images": "images/gpon.jpg"
     }
   ]
 };
@@ -122,8 +122,8 @@ projects.display = function() {
       $(".project-entry:last").append(formattedProjectDates);
       var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
       $(".project-entry:last").append(formattedProjectDescription);
-      // var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
-      // $(".project-entry:last").append(formattedProjectImage);
+      var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
+      $(".project-entry:last").append(formattedProjectImage);
     }
 }
 
